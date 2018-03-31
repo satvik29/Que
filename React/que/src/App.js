@@ -1,17 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Provider } from 'react-redux';
-import logo from './logo.svg';
 import configureStore from './store/configureStore';
-import DummyComponent from './components/DummyComponent'
+import RouterWrapper from './components/RouterWrapper'
 import './App.css';
 
 const store = configureStore();
 
-class App extends Component {
+class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <DummyComponent />
+        <RouterWrapper />
       </Provider>
     );
   }
