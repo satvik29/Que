@@ -1,6 +1,7 @@
 'use strict';
 
 const functions = require('firebase-functions');
+const cors = require('cors')({origin: true});
 
 // Import Admin SDK
 const admin = require("firebase-admin");
@@ -65,17 +66,25 @@ exports.reply = functions.https.onRequest((req, res) => {
 
 exports.pop_queue = functions.https.onRequest((req, res) => {
 	// Get a database reference to our blog
-
-	const group = req.body.group;
-	const queueId = req.body.queue_id;
-
-	ref.child(group).update({
-		[queueId]: null,
+	cors(req, res, function() {
+		const db = admin.database();
+		
+			const group = req.body.group;
+			const queueId = req.body.queue_id;
+			
+			console.log(req.body);
+			console.log(req.body.group);
+			console.log(req.body.queue_id);
+			console.log(`/${group}/${queueId}`);
+		
+			const ref = db.ref(`/${group}/${queueId}`);
+		
+			ref.remove()
+		
+			// Send the response
+			res
+				.status(200)
+				.type('text/xml')
+				.end('Successfully deleted');
 	});
-
-	// Send the response
-	res
-		.status(200)
-		.type('text/xml')
-		.end('Successfully deleted');
 });

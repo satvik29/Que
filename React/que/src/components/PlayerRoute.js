@@ -11,9 +11,9 @@ import searchYouTube from 'youtube-search-api-with-axios';
 import * as playerActions from '../actions/player';
 import * as youtubeActions from '../actions/youtube';
 
-import '../common.css'
+import { API_KEY } from '../constants/keys';
 
-const API_KEY = "AIzaSyD2dgqvWD4BE3JtFAq3FEIVQpP0JoS_rHc";
+import '../common.css'
 
 class PlayerRoute extends React.Component {
     state = {
@@ -36,13 +36,33 @@ class PlayerRoute extends React.Component {
         const queue = nextProps.queue.toArray();
         if (nextProps.queue.size > 0 && this.state.youtubeVideo === null) {
             const query = queue[0].query;
-            // nextProps.fetchYoutube(query);
+
             searchYouTube({
                 key: API_KEY,
                 maxResults: 1,
                 q: query,
             }, (videos) => {
-                this.setState({youtubeVideo: videos[0].id.videoId});
+                this.setState({ youtubeVideo: videos[0].id.videoId });
+            })
+        }
+    }
+
+    _onEnd = () => {
+        const queue = this.props.queue.toArray();
+
+        const topIndex = this.props.queue.keySeq().toArray()[0];
+        this.props.removeQueueItem(topIndex);
+        // this.props.popQueue(this.props.groupId, topIndex);
+        
+        if (this.props.queue.size >= 2) {
+            const query = queue[1].query;
+
+            searchYouTube({
+                key: API_KEY,
+                maxResults: 1,
+                q: query,
+            }, (videos) => {
+                this.setState({ youtubeVideo: videos[0].id.videoId });
             })
         }
     }
@@ -53,7 +73,7 @@ class PlayerRoute extends React.Component {
                 <ListItem key={item.query}>
                     <ListItemText primary={`${i + 1}. ${item.query}`} />
                 </ListItem>
-            ))
+            ));
     }
 
     render() {
@@ -79,6 +99,7 @@ class PlayerRoute extends React.Component {
                         <YouTube
                             videoId={this.state.youtubeVideo}
                             opts={opts}
+                            onEnd={this._onEnd}
                         />
                     </Paper>
                 </Grid>
@@ -96,6 +117,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     fetchQueue: (groupId) => dispatch(playerActions.fetchQueue(groupId)),
+    removeQueueItem: (id) => dispatch(playerActions.removeQueueItem(id)),
+    popQueue: (group, id) => dispatch(playerActions.popQueue(group, id)),
     fetchYoutube: (query) => dispatch(youtubeActions.fetchYoutubeVideos(query))
 });
 
