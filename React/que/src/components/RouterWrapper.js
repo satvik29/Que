@@ -1,12 +1,12 @@
 import React from 'react';
-import FirstPage from './FirstPage'
 import {
     BrowserRouter,
     Link,
     Route
 } from 'react-router-dom';
-import Header from '../components/Header'
-import DummyRoute from './DummyRoute';
+import Header from './Header'
+import FirstPage from './FirstPage'
+import PlayerRoute from './PlayerRoute';
 
 class RouterWrapper extends React.Component {
     render() {
@@ -15,9 +15,9 @@ class RouterWrapper extends React.Component {
                 <Header />
                 <BrowserRouter>
                     <div>
-                        <Route path="/" component={DummyRoute} exact /> 
-                        <Route path="/group" component={FirstPage} />  
-                    </div>              
+                        <Route path="/" component={FirstPage} exact/>
+                        <Route path="/player" component={PlayerRoute} />
+                    </div>
                 </BrowserRouter>
             </div>
         );

@@ -1,22 +1,27 @@
 import React from 'react';
-import '../App.css';
+import '../common.css';
+import Grid from 'material-ui/Grid'
 import TextField from 'material-ui/TextField'
 import Button from 'material-ui/Button'
-import Center from 'react-center'
 
 class FrontPage extends React.Component {
-	render() {
-		return (
-		<Center>
-			<div>
-		     	<TextField id="groupId" placeholder="Enter group ID" />
-		     	<Button id="enter"> 
-		     		Go!
-		     	</Button>
-	     	</div>
-     	</Center>
-		);
-	}
+    render() {
+        return (
+            <Grid
+                container
+                justify="center"
+                className="container"
+            >
+                <TextField
+                    id="groupId"
+                    placeholder="Enter group ID"
+                />
+                <Button id="enter">
+                    Go!
+                </Button>
+            </Grid>
+        );
+    }
 }
 
 export default FrontPage;
