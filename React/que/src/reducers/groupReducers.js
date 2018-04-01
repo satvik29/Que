@@ -13,6 +13,6 @@ const groupReducer = (state = GroupRecord(), action) => {
 			return state;
 		}
 	}
-}
+};
 
 export default groupReducer;

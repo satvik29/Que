@@ -14,15 +14,17 @@ class FrontPage extends React.Component {
         groupId: null,
     };
 
-    _handleGroupIdChange = (value) => {
-        this.setState({ groupId: value });
+    _handleGroupIdChange = (e) => {
+        this.setState({ groupId: e.target.value });
     }
 
     _handleSubmitClick = () => {
         if (this.state.groupId != null) {
             this.props.setGroupId(this.state.groupId);
+            this.props.history.push('/player')
         }
     }
+
     render() {
         return (
             <Grid

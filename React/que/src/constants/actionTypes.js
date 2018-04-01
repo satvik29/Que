@@ -1,1 +1,4 @@
 export const SET_GROUP_ID = 'SET_GROUP_ID';
+
+export const QUEUE_FETCH = 'QUEUE_FETCH';
+export const QUEUE_FETCH_FULFILLED = 'QUEUE_FETCH_FULFILLED';
