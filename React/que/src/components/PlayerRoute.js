@@ -30,6 +30,14 @@ class PlayerRoute extends React.Component {
         if (this.props.queue.size === 0) {
             this.props.fetchQueue(this.props.groupId);
         }
+
+        window.setInterval(() => {
+            this.props.fetchQueue(this.props.groupId);
+        }, 2000);
+    }
+
+    componentWillUnmount() {
+        window.clearInterval();
     }
 
     componentWillReceiveProps(nextProps) {
@@ -50,10 +58,6 @@ class PlayerRoute extends React.Component {
     _onEnd = () => {
         const queue = this.props.queue.toArray();
 
-        const topIndex = this.props.queue.keySeq().toArray()[0];
-        this.props.removeQueueItem(topIndex);
-        // this.props.popQueue(this.props.groupId, topIndex);
-        
         if (this.props.queue.size >= 2) {
             const query = queue[1].query;
 
@@ -65,6 +69,10 @@ class PlayerRoute extends React.Component {
                 this.setState({ youtubeVideo: videos[0].id.videoId });
             })
         }
+
+        const topIndex = this.props.queue.keySeq().toArray()[0];
+        this.props.removeQueueItem(topIndex);
+        this.props.popQueue(this.props.groupId, topIndex);
     }
 
     _renderQueue = () => {

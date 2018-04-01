@@ -12,8 +12,6 @@ const playerReducer = (state = PlayerRecord(), action) => {
 		}
 
 		case actions.REMOVE_QUEUE_ITEM: {
-			console.log(state.toJS())
-			console.log(action.payload)
 			return state.merge({
 				queue: state.queue.delete(action.payload)
 			});
