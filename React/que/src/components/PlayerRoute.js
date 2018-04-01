@@ -76,6 +76,7 @@ class PlayerRoute extends React.Component {
     }
 
     _renderQueue = () => {
+        console.log(this.props.queue)
         return this.props.queue.toArray()
             .map((item, i) => (
                 <ListItem key={item.query}>
