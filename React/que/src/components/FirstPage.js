@@ -1,22 +1,55 @@
 import React from 'react';
-import '../App.css';
-import TextField from 'material-ui/TextField'
-import Button from 'material-ui/Button'
-import Center from 'react-center'
+import { connect } from 'react-redux';
+
+import Grid from 'material-ui/Grid';
+import TextField from 'material-ui/TextField';
+import Button from 'material-ui/Button';
+
+import * as groupActions from '../actions/groups';
+
+import '../common.css';
 
 class FrontPage extends React.Component {
-	render() {
-		return (
-		<Center>
-			<div>
-		     	<TextField id="groupId" placeholder="Enter group ID" />
-		     	<Button id="enter"> 
-		     		Go!
-		     	</Button>
-	     	</div>
-     	</Center>
-		);
-	}
+    state = {
+        groupId: null,
+    };
+
+    _handleGroupIdChange = (value) => {
+        this.setState({ groupId: value });
+    }
+
+    _handleSubmitClick = () => {
+        if (this.state.groupId != null) {
+            this.props.setGroupId(this.state.groupId);
+        }
+    }
+    render() {
+        return (
+            <Grid
+                container
+                justify="center"
+                className="container"
+            >
+                <TextField
+                    id="groupId"
+                    placeholder="Enter group ID"
+                    onChange={this._handleGroupIdChange}
+                />
+                <Button id="enter" onClick={this._handleSubmitClick}>
+                    Go!
+                </Button>
+            </Grid>
+        );
+    }
 }
 
-export default FrontPage;
+const mapStateToProps = (state) => ({});
+
+const mapDispatchToProps = (dispatch) => ({
+    setGroupId: (groupId) => dispatch(groupActions.setGroupId(groupId)),
+});
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps,
+)(FrontPage);
