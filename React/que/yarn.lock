@@ -370,6 +370,10 @@ axios@^0.18.0:
     follow-redirects "^1.3.0"
     is-buffer "^1.1.5"
 
+axios@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.7.0.tgz#489c269044d5066dfa2c64c749cb131b176f4a7a"
+
 axobject-query@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/axobject-query/-/axobject-query-0.1.0.tgz#62f59dbc59c9f9242759ca349960e7a2fe3c36c0"
@@ -3004,6 +3008,10 @@ getpass@^0.1.1:
   dependencies:
     assert-plus "^1.0.0"
 
+gitbook-plugin-github@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/gitbook-plugin-github/-/gitbook-plugin-github-2.0.0.tgz#5166e763cfcc402d432880b7a6c85c1c54b56a8d"
+
 glob-base@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/glob-base/-/glob-base-0.3.0.tgz#dbb164f6221b1c0b1ccf82aea328b497df0ea3c4"
@@ -4429,6 +4437,10 @@ load-json-file@^2.0.0:
     pify "^2.0.0"
     strip-bom "^3.0.0"
 
+load-script@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/load-script/-/load-script-1.0.0.tgz#0491939e0bee5643ee494a7e3da3d2bac70c6ca4"
+
 loader-fs-cache@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/loader-fs-cache/-/loader-fs-cache-1.0.1.tgz#56e0bf08bd9708b26a765b68509840c8dec9fdbc"
@@ -5715,7 +5727,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.8, prop-types@^15.6.0:
+prop-types@^15.5.10, prop-types@^15.5.3, prop-types@^15.5.4, prop-types@^15.5.8, prop-types@^15.6.0:
   version "15.6.1"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.1.tgz#36644453564255ddda391191fb3a125cbdf654ca"
   dependencies:
@@ -6018,6 +6030,14 @@ react-transition-group@^2.2.1:
     prop-types "^15.5.8"
     warning "^3.0.0"
 
+react-youtube@^7.5.0:
+  version "7.5.0"
+  resolved "https://registry.yarnpkg.com/react-youtube/-/react-youtube-7.5.0.tgz#3175a9c4e078164cf103ce4bc780a9e4ca4f1f94"
+  dependencies:
+    lodash "^4.17.4"
+    prop-types "^15.5.3"
+    youtube-player "^5.4.0"
+
 react@^16.3.0:
   version "16.3.0"
   resolved "https://registry.yarnpkg.com/react/-/react-16.3.0.tgz#fc5a01c68f91e9b38e92cf83f7b795ebdca8ddff"
@@ -6122,6 +6142,12 @@ reduce-function-call@^1.0.1:
   resolved "https://registry.yarnpkg.com/reduce-function-call/-/reduce-function-call-1.0.2.tgz#5a200bf92e0e37751752fe45b0ab330fd4b6be99"
   dependencies:
     balanced-match "^0.4.2"
+
+redux-observable@^0.18.0:
+  version "0.18.0"
+  resolved "https://registry.yarnpkg.com/redux-observable/-/redux-observable-0.18.0.tgz#48de1f35554b7ba23a88b18379ca1c93f5124197"
+  dependencies:
+    gitbook-plugin-github "^2.0.0"
 
 redux-promise-middleware@^5.0.0:
   version "5.0.0"
@@ -6576,6 +6602,10 @@ shellwords@^0.1.1:
 signal-exit@^3.0.0, signal-exit@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
+
+sister@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/sister/-/sister-3.0.0.tgz#88eb57047cb283da1e070b1a7cae8212f3bcb2db"
 
 slash@^1.0.0:
   version "1.0.0"
@@ -7696,3 +7726,17 @@ yargs@~3.10.0:
     cliui "^2.1.0"
     decamelize "^1.0.0"
     window-size "0.1.0"
+
+youtube-player@^5.4.0:
+  version "5.5.0"
+  resolved "https://registry.yarnpkg.com/youtube-player/-/youtube-player-5.5.0.tgz#95f058534f9544586185551d0d2d33f381f6587a"
+  dependencies:
+    debug "^2.6.6"
+    load-script "^1.0.0"
+    sister "^3.0.0"
+
+youtube-search-api-with-axios@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/youtube-search-api-with-axios/-/youtube-search-api-with-axios-2.0.0.tgz#d2097d79939331dd5661d55b2722d0cd8a34a13c"
+  dependencies:
+    axios "^0.7.0"
