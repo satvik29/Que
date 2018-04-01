@@ -10,6 +10,78 @@
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <link rel="stylesheet" href="./stylesheets/player-engine-export-min.css" />
+    <script type="text/javascript" src="./scripts/player-engine-export-min.js"></script>
+    <script type="text/javascript" src="./libraries/common/components.js"></script>
+		<link type="text/css" rel="Stylesheet" href="./libraries/common/components.1.00.css" />
+		<script type="text/javascript" src="./data/data.js"></script>
+		<script type="text/javascript" src="./scripts/plugins/bodymovin/bodymovin.min.js"></script>
+		<script type="text/javascript" src="./bodymovin/bodymovinAnimations.js"></script>
+
+    <script type="text/javascript">
+
+			prx.device_library = 'common';
+			prx.devices[prx.device] = {
+				name: prx.device
+				,defaultOrientation: 'landscape'
+				,portrait_applies: 0 //new
+				,portrait: [0,0]
+				,landscape_applies: 1 //new
+				,landscape: [1280,350]
+				,allow_orientation_change: 1 //new
+				,statusbar_skin: 'default' // new
+				,statusbarheightportrait: 0
+				,statusbarheightlandscape: 0
+				,navigationbar_skin: 'default' //new
+				,navigationbarheightportrait: 0
+				,navigationbarheightlandscape: 0
+				,normalportrait: [0,0]
+				,normallandscape: [1280,350]
+				,device_s3bucket: '2ba59787-3a2b-426f-aa2e-e60174052e65'
+				,dpr: '1.00'
+				,deviceType: "default"
+				,showiPhoneXNotch: false
+				,scrollType: "default"
+				,initialscale: 1.00
+				,targetdensitydpi: "device-dpi"
+			}
+
+			prx.projectsettings.id = '73fb1fe2-f396-4428-8911-d9e499a8e938';
+			prx.projectsettings.s3b = 'keerthipradaabalajee-633705-proto';
+			prx.projectsettings.account = 'keerthipradaabalajee';
+			prx.projectsettings.statusbar = '0';
+			prx.projectsettings.statusbarapplies = '0';
+			prx.projectsettings.navigationbar = '0';
+			prx.projectsettings.navigationbarapplies = '0';
+			prx.projectsettings.initialpageid = -1;
+
+
+			prx.projectsettings.flashactions = 1;
+			prx.projectsettings.gatrackingcode = '';
+
+			prx.export2html = '1' == true;
+			prx.mobPlayer = 0;
+
+			prx.user.country = 'US';
+
+			prx.s3Links = [];
+			var sLinkedAssets = [];
+
+
+			prx.csrf_token = 'FA20BC6BE4D6CAE25AB8FEC8CE84C7BFFD8E5E9027416914BD42FB6CC43D9328';
+
+
+
+
+                            prx.assetsAccessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJkIjp7InVpZCI6Ii0xIiwicHJvamVjdF9pZCI6IjczZmIxZmUyLWYzOTYtNDQyOC04OTExLWQ5ZTQ5OWE4ZTkzOCJ9LCJ2IjowLCJleHAiOjE1MjI3MjgwNDQsImlhdCI6MTUyMjU0ODA0NH0.pw_gMRs49rtALOJQegO-JqMwtE25t_QC-6RGqBpAMVI";
+
+			prx.iniPlayer.iniPreLoad();
+
+
+
+
+
+		</script>
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -25,6 +97,23 @@
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
+    <div id="window-wrapper">
+
+				<div class="prx-page" data-role="page" id="p-2" data-id="2"></div>
+
+				<div class="prx-page" data-role="page" id="p-3" data-id="3"></div>
+
+		</div>
+
+
+			<!-- <div id="loader-wrapper">
+
+				<div class="progress">
+					<div class="progress-bar"></div>
+				</div>
+				<div id="poweredby"></div>
+		</div> -->
+
     <div id="root"></div>
     <!--
       This HTML file is a template.
