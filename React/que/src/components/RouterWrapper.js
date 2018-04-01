@@ -1,4 +1,5 @@
 import React from 'react';
+import FirstPage from './FirstPage'
 import {
     BrowserRouter,
     Link,
@@ -13,7 +14,10 @@ class RouterWrapper extends React.Component {
             <div>
                 <Header />
                 <BrowserRouter>
-                    <Route path="/" component={DummyRoute} />               
+                    <div>
+                        <Route path="/" component={DummyRoute} exact /> 
+                        <Route path="/group" component={FirstPage} />  
+                    </div>              
                 </BrowserRouter>
             </div>
         );
