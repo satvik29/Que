@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import Grid from 'material-ui/Grid';
 import Paper from 'material-ui/Paper';
+import List, { ListItem, ListItemText } from 'material-ui/List';
 
 import * as playerActions from '../actions/player';
 
@@ -16,9 +17,18 @@ class PlayerRoute extends React.Component {
             return;
         }
 
-        if (this.props.queue.length === 0) {
+        if (this.props.queue.size === 0) {
             this.props.fetchQueue(this.props.groupId);
         }
+    }
+
+    _renderQueue = () => {
+        return this.props.queue.toArray()
+        .map((item, i) => (
+            <ListItem key={item.query}>
+                <ListItemText primary={`${i + 1}. ${item.query}`} />
+            </ListItem>
+            ))
     }
 
     render() {
@@ -26,7 +36,9 @@ class PlayerRoute extends React.Component {
             <Grid container>
                 <Grid item xs={4}>
                     <Paper className="panel">
-                        Panel Here
+                        <List component="nav">
+                            {this._renderQueue()}
+                        </List>
                     </Paper>
                 </Grid>
                 <Grid item xs={8}>
@@ -34,7 +46,7 @@ class PlayerRoute extends React.Component {
                         Video here
                     </Paper>
                 </Grid>
-            </Grid>
+            </Grid >
         );
     }
 }

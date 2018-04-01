@@ -1,6 +1,6 @@
-import {Record} from 'immutable';
+import { Record, Map } from 'immutable';
 
 export default Record({
-	queue: [],
+	queue: Map(),
 	currentSong: null,
 });
