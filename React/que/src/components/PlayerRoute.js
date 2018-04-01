@@ -79,16 +79,14 @@ class PlayerRoute extends React.Component {
         return this.props.queue.toArray()
             .map((item, i) => (
                 <ListItem key={item.query}>
-                    <ListItemText primary={`${i + 1}. ${item.query}`} />
+                    <ListItemText primary={`${i + 1}. ${item.query}`} className="list"/>
                 </ListItem>
             ));
     }
 
     render() {
         const opts = {
-            height: '390',
-            width: '640',
-            playerVars: { // https://developers.google.com/youtube/player_parameters
+            playerVars: {
                 autoplay: 1
             }
         };

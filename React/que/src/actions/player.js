@@ -22,13 +22,13 @@ export const popQueue = (group, id) => {
 		payload: axios.post(`https://us-central1-que-la-hacks.cloudfunctions.net/pop_queue`, {
 			group,
 			queue_id: id,
-		}, 
-		{
-			headers: {
-				'Content-Type': 'application/json;charset=UTF-8',
-				'Access-Control-Allow-Origin': '*',
-			},
-			crossdomain: true,
-		}),
+		},
+			{
+				headers: {
+					'Content-Type': 'application/json;charset=UTF-8',
+					'Access-Control-Allow-Origin': '*',
+				},
+				crossdomain: true,
+			}),
 	};
 };
